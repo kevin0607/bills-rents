@@ -12,8 +12,10 @@
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
-        {"key": "sourceData"}
+        {"key": "sourceData"},
+        {"key": "options"}
     ],
+    "options": "\"{{tenents_names.data.map((row) => { \n    return { \n        label: row.region + ' | '  + row.name + '  ' , \n        value: row.tenant_id \n    };\n})}}\"",
     "placeholderText": "Tenent",
     "isDisabled": false,
     "isRequired": false,

@@ -12,8 +12,10 @@
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
-        {"key": "sourceData"}
+        {"key": "sourceData"},
+        {"key": "options"}
     ],
+    "options": "{{year_month.data.map((row) => { \n      return { label: row.month_year, value: row.month_year } \n   }) \n}}",
     "placeholderText": "Select month",
     "isDisabled": false,
     "isRequired": false,

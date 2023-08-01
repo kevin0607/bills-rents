@@ -12,8 +12,10 @@
     "dynamicBindingPathList": [
         {"key": "accentColor"},
         {"key": "borderRadius"},
-        {"key": "sourceData"}
+        {"key": "sourceData"},
+        {"key": "options"}
     ],
+    "options": "\"{{main_meters.data.map((row) => { \n    return { \n        label: row.meter_id + '  ' + row.mark, \n        value: row.submeter_id \n    };\n})}}\"",
     "placeholderText": "Select main meter",
     "isDisabled": false,
     "isRequired": false,
