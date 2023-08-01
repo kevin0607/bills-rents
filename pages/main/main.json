@@ -42,6 +42,18 @@
           ],
           [
             {
+              "id": "main_JSObject1.myFun1",
+              "name": "JSObject1.myFun1",
+              "collectionId": "main_JSObject1",
+              "clientSideExecution": true,
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "function () {\n  storeValue('link_url', 'https://app.appsmith.com/app/billsonline/billsonline-64c6cee62d8f7a159ce65dc3?tenant_id=1&rent_paid_status=1');\n  storeValue('st', 'https://api.callmebot.com/whatsapp.php?phone=+918885305097&text= ' + ShortenURL.data + '&apikey=3103785');\n  storeValue('tabs_m', '0');\n  storeValue('tabs_e', '1');\n  storeValue('tabs_l', 'login1');\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
               "id": "main_get_info",
               "name": "get_info",
               "confirmBeforeExecute": false,
@@ -92,6 +104,18 @@
               "pluginType": "DB",
               "jsonPathKeys": [
                 "select_history_yearmonth.selectedOptionLabel"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "main_ShortenURL",
+              "name": "ShortenURL",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [
+                "appsmith.store.link_url"
               ],
               "timeoutInMillisecond": 10000
             }
