@@ -1,0 +1,1 @@
+select name from tenants where tenant_id={{appsmith.store.tenant_id}};

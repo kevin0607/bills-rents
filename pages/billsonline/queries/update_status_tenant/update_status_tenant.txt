@@ -1,0 +1,1 @@
+UPDATE tenants set rent_paid_status={{appsmith.store.rent_paid_status}} where tenant_id={{appsmith.store.tenant_id}}

@@ -1,0 +1,16 @@
+REPLACE INTO main_meters (
+    meter_id,
+    submeter_id,
+    meter_reading_cost,
+    units_consumed,
+    month_year,
+    sub_meter_reading
+)
+VALUES (
+    {{select_mainmeter.selectedOptionLabel.split(' ')[0]}},
+    {{select_mainmeter.selectedOptionValue}},
+    CAST({{mtotal.text}} AS DECIMAL(10, 2)),
+    CAST({{munits.text}} AS DECIMAL(10, 2)),
+    DATE_FORMAT(CURDATE(), '%Y%m'),
+    CAST({{sunits.text}} AS DECIMAL(10, 2))
+)

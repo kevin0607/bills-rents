@@ -1,0 +1,3 @@
+        SELECT count(1) cnt
+        FROM main_meters
+        WHERE month_year = DATE_FORMAT(CURDATE(), '%Y%m')

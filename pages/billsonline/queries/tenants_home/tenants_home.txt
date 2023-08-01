@@ -1,0 +1,1 @@
+select Name,rent,rent_payment_date,IF(rent_paid_status=1,'✅', '❌') rent_paid_status from tenants ;

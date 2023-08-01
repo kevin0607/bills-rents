@@ -1,0 +1,11 @@
+
+
+select su.submeter_id,
+su.main_meter_id,
+ABS(SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', 1) - SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', -1)) sub_meter_units,
+group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.meter_reading ELSE NULL END) latest_bill ,
+group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.units_consumed ELSE NULL END) units_consumed , 
+ROUND((group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.meter_reading ELSE NULL END)/group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.units_consumed ELSE NULL END))*ABS(SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', 1) - SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', -1)),1) sub_meter_bill ,
+(group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.units_consumed ELSE NULL END) - ABS(SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', 1) - SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', -1))) main_meter_units,
+ROUND((group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.meter_reading ELSE NULL END)/group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.units_consumed ELSE NULL END))*(group_concat(distinct CASE WHEN  mm.month_year=DATE_FORMAT(NOW(), '%Y%m')  THEN mm.units_consumed ELSE NULL END) - ABS(SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', 1) - SUBSTRING_INDEX(group_concat(distinct su.meter_reading), ',', -1))),1) main_meter_bill
+from submeters su join main_meters mm on mm.submeter_id=su.submeter_id and mm.meter_id=su.main_meter_id where mm.month_year >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH), '%Y%m') and su.month_year >= DATE_FORMAT(DATE_SUB(NOW(), INTERVAL 1 MONTH), '%Y%m') group by 1,2;

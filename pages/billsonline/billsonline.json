@@ -1,0 +1,97 @@
+{
+  "unpublishedPage": {
+    "name": "billsonline",
+    "slug": "billsonline",
+    "layouts": [
+      {
+        "viewMode": false,
+        "dsl": {
+          "widgetName": "MainContainer",
+          "backgroundColor": "none",
+          "rightColumn": 1224,
+          "snapColumns": 64,
+          "detachFromLayout": true,
+          "widgetId": "0",
+          "topRow": 0,
+          "bottomRow": 500,
+          "containerStyle": "none",
+          "snapRows": 64,
+          "parentRowSpace": 1,
+          "type": "CANVAS_WIDGET",
+          "canExtend": true,
+          "version": 82,
+          "minHeight": 660,
+          "parentColumnSpace": 1,
+          "dynamicBindingPathList": [],
+          "leftColumn": 0
+        },
+        "layoutOnLoadActions": [
+          [
+            {
+              "id": "billsonline_JSObject1.myFun1",
+              "name": "JSObject1.myFun1",
+              "collectionId": "billsonline_JSObject1",
+              "clientSideExecution": true,
+              "confirmBeforeExecute": false,
+              "pluginType": "JS",
+              "jsonPathKeys": [
+                "function () {\n  storeValue('rent_paid_status', appsmith.URL.queryParams['rent_paid_status']);\n  storeValue('tenant_id', appsmith.URL.queryParams['tenant_id']);\n  storeValue('tabs_l', 'login1');\n  storeValue('tabs_m', '0');\n}"
+              ],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "billsonline_tenants_home",
+              "name": "tenants_home",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "billsonline_update_status_tenant",
+              "name": "update_status_tenant",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.rent_paid_status",
+                "appsmith.store.tenant_id"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
+              "id": "billsonline_received_due",
+              "name": "received_due",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            },
+            {
+              "id": "billsonline_tenant_name",
+              "name": "tenant_name",
+              "confirmBeforeExecute": false,
+              "pluginType": "DB",
+              "jsonPathKeys": [
+                "appsmith.store.tenant_id"
+              ],
+              "timeoutInMillisecond": 10000
+            }
+          ]
+        ],
+        "layoutOnLoadActionErrors": [],
+        "validOnPageLoadActions": true,
+        "id": "billsonline",
+        "deleted": false,
+        "policies": [],
+        "userPermissions": []
+      }
+    ],
+    "userPermissions": [],
+    "policies": [],
+    "isHidden": true
+  },
+  "deleted": false,
+  "gitSyncId": "64ab1361f97f0f1342b5fcd4_64c6cee62d8f7a159ce65dc2"
+}

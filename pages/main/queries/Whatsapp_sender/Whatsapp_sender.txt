@@ -1,0 +1,21 @@
+{
+  "to": "918885305097",
+  "type": "hsm",
+  "channelId": "90aed449106d4ad49ef59648b2be0fbb",
+  "content":{
+    "hsm": {
+      "namespace": "3647260a_4c90_4bad_b32a_7719224a79fb",
+      "templateName": "support",
+      "language": {
+        "policy": "deterministic",
+        "code": "en"
+      },
+      "params": [
+        {"default": "Roberto"},
+        {"default": "123"},
+        {"default": "new coffee machine"},
+        {"default": "MessageBird, Trompenburgstraat 2C, 1079TX Amsterdam"}
+      ]
+    }
+  }
+}

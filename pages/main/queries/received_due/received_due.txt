@@ -1,0 +1,1 @@
+select sum(IF(IF(rent_paid_status = 1, 1, 0)=1,rent,0)) amount_received, sum(IF(IF(rent_paid_status = 1, 1, 0)=0,rent,0)) amount_due from tenants ;

@@ -1,0 +1,15 @@
+SELECT
+    m2.meter_id,
+    m2.submeter_id,
+    IF(m1.month_year IS NOT NULL, '✅', '❌') AS mark
+FROM
+    main_meters m1
+RIGHT JOIN
+    (
+        SELECT DISTINCT meter_id, submeter_id, month_year
+        FROM main_meters
+        WHERE month_year = DATE_FORMAT(CURDATE(), '%Y%m')-1
+    ) m2
+ON
+    m1.meter_id = m2.meter_id AND m1.submeter_id = m2.submeter_id and m1.month_year = DATE_FORMAT(CURDATE(), '%Y%m');
+
