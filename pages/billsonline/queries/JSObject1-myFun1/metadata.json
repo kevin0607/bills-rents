@@ -23,7 +23,7 @@
       "jsArguments": [],
       "isAsync": true
     },
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "clientSideExecution": true,
     "dynamicBindingPathList": [
       {
@@ -33,7 +33,7 @@
     "isValid": true,
     "invalids": [],
     "messages": [],
-    "userSetOnLoad": true,
+    "userSetOnLoad": false,
     "confirmBeforeExecute": false,
     "policies": [],
     "userPermissions": [],
